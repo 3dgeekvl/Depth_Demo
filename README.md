@@ -111,39 +111,20 @@ Image.fromarray(colored).save(fpath_colored)
 ## **Sanity checks** (Recommended)
 Check if models can be loaded: 
 ```bash
-python sanity_hub.py
+python sanity_check.py
 ```
 Try a demo prediction pipeline:
 ```bash
-python sanity.py
+python sanity_check_begin.py
 ```
 This will save a file `pred.png` in the root folder, showing RGB and corresponding predicted depth side-by-side.
-## Model files
-Models are defined under `models/` folder, with `models/<model_name>_<version>.py` containing model definitions and  `models/config_<model_name>.json` containing configuration.
-
-Single metric head models (Zoe_N and Zoe_K from the paper) have the common definition and are defined under `models/zoedepth` while as the multi-headed model (Zoe_NK) is defined under `models/zoedepth_nk`.
-## **Evaluation**
-Download the required dataset and change the `DATASETS_CONFIG` dictionary in `utils/config.py` accordingly. 
-### Evaluating offical models
-On NYU-Depth-v2 for example:
-
-For ZoeD_N:
-```bash
-python evaluate.py -m zoedepth -d nyu
-```
-
-### Evaluating local checkpoint
-```bash
-python evaluate.py -m zoedepth --pretrained_resource="local::/path/to/local/ckpt.pt" -d nyu
-```
-Pretrained resources are prefixed with `url::` to indicate weights should be fetched from a url, or `local::` to indicate path is a local file. Refer to `models/model_io.py` for details. 
 
 ## **Gradio demo**
-We provide a UI demo built using [gradio](https://gradio.app/). To get started, install UI requirements:
+To get started, install UI requirements:
 ```bash
-pip install -r ui/ui_requirements.txt
+pip install -r display_requirements.txt
 ```
 Then launch the gradio UI:
 ```bash
-python -m ui.app
+python -m Demo.app
 ```
