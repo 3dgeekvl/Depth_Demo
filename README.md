@@ -24,7 +24,7 @@ Install environment using `environment.yml` :
 Using conda : 
 
 ```bash
-conda env create -n DemoDepth --file environment.yml
+conda env create -n DemoDepth --file demo_environment.yml
 conda activate DemoDepth
 ```
 
